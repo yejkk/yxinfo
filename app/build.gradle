@@ -21,6 +21,39 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    productFlavors {
+//        qihu360 {} // 360手机助手
+//        yingyongbao {} // 腾讯应用宝
+//        wandoujia {} // 豌豆荚
+//        baidu {} // 百度手机助手
+//        miui {} // 小米
+//        flyme {} // 魅族
+//        lenovo {} // 联想-乐商店
+//        oppo {} // Oppo-可可软件商店
+//        huawei {} // 华为
+//        vivo {} // vivo
+//        hiapk {} // 安卓市场
+//        sj91 {} // 91手机助手
+//        sogou {} // 搜狗手机市场
+//        sohu {} // 搜狐应用中心
+//        taobao {} // 淘宝手机助手
+//        gfan {} // 机锋
+//        appchina {} // 应用汇
+//        mumayi {} // 木蚂蚁
+//        wangyi163 {} // 网易应用
+//        nduoa {} // N多市场
+//        mm10086 {} // MM商城-中国移动
+//        wostore {} // WO商店
+//        youyi {} // 优异
+//        uc {} // UC+开发平台
+//        anzhi {} // 安智市场
+//        google {} // google play
+//        amazon {} // 亚马逊
+//    }
+//    productFlavors.all {
+//        flavor -> flavor.manifestPlaceholders = [channel: name]
+//    }
+
 }
 
 dependencies {
@@ -31,4 +64,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    api 'io.reactivex.rxjava2:rxjava:2.1.1'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0-RC3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.1.2'
 }
+
+
