@@ -5,7 +5,11 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import open.yexin.com.yxinfomation.base.BaseApplication;
+import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.RxJavaCallAdapterFactory;
 
 /**
  * Created by yexin on 2018/3/29.
@@ -40,13 +44,13 @@ public class Api {
             HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             //设置 请求的缓存
-            File cacheFile = new File(HaiBaoApplication.getInstance().getCacheDir(), "cache");
+            File cacheFile = new File(BaseApplication.getInstance().getCacheDir(), "cache");
             Cache cache = new Cache(cacheFile, 1024 * 1024 * 50); //50Mb
 
             OkHttpClient client = new OkHttpClient.Builder()
                     .connectTimeout(15, TimeUnit.SECONDS)
                     .addInterceptor(interceptor)
-                    .addInterceptor(mInterceptor)
+                    .addInterceptor(new RequestInterceptor())
                     .cache(cache)
                     .build();
 

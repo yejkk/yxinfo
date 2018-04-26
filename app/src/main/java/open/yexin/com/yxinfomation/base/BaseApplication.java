@@ -16,10 +16,17 @@ public class BaseApplication extends Application {
 
     public final static String TAG = BaseApplication.class.getName();
 
+    public static BaseApplication instance;
+
+    public static BaseApplication getInstance() {
+        return instance;
+    }
+
     @Override
     public void  onCreate(){
         super.onCreate();
         int pid = android.os.Process.myPid();
+        instance = this;
         Thread.setDefaultUncaughtExceptionHandler(uncaughtExceptionHandler);
         LogUtil.i(TAG, "Application oncreate  pid=" +pid);
 
